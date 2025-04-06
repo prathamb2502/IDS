@@ -1,0 +1,19 @@
+<!-- prediction.component.html -->
+<div class="prediction-container">
+  <h2>Intrusion Detection Prediction</h2>
+  <div>
+    <label for="featureInput">Enter Packet Length:</label>
+    <input id="featureInput" type="number" [(ngModel)]="featureInput" />
+  </div>
+  <button (click)="makePrediction()">Predict</button>
+
+  <div *ngIf="predictionResult">
+    <h3>Prediction Result:</h3>
+    <p>Intrusion Detected: {{ predictionResult.intrusion_detected }}</p>
+    <p>Confidence: {{ predictionResult.confidence }}</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+</div>
